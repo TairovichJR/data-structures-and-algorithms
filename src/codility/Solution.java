@@ -11,41 +11,42 @@ public class Solution {
         UserStats u1 = new UserStats(Optional.of(1L));
         UserStats u2 = new UserStats(Optional.of(2L));
         UserStats u3 = new UserStats(Optional.of(3L));
-    //    UserStats u4 = new UserStats(Optional.of(null)); throwing NPE
+    //        UserStats u4 = new UserStats(Optional.of(null)); //throwing NPE
 
         Map<String, UserStats> users = new HashMap<>();
-        users.put("1",u1);
-        users.put("2",u3);
-   //     users.put("3",u4);
-        users.put("4",null);
+        users.put("1", u1);
+        users.put("2", u2);
+        users.put("2", u3);
+             users.put("3",u2);
+       // users.put("4", null);
 
         System.out.println(count(users));
     }
 
-    static  Map<Long, Long> count(Map<String, UserStats>... visits) {
-        Map<Long,Long> counts = new HashMap<>();
-        if (visits == null)             return counts;
-        Arrays.stream(visits).forEach(
-                i -> {
-                    System.out.println("hi here");
-                    Map.Entry<String, UserStats> entry = i.entrySet().iterator().next();
-                    String strKey = entry.getKey();
-                    if(strKey.matches("\\d*")){
-                     Long key = Long.parseLong(strKey);
+    static Map<Long, Long> count(Map<String, UserStats> visits) {
+        Map<Long, Long> counts = new HashMap<>();
+        if (visits == null) return counts;
 
-                     Optional<Long> userStat = entry.getValue() == null ? null : entry.getValue().getVisitCount();
-                     if (userStat != null && userStat.isPresent()){
-                         if (counts.containsKey(key)){
-                             Long addValue = counts.get(key) + userStat.get();
-                             counts.put(key, addValue);
-                         }else{
-                             counts.put(key, userStat.get());
-                         }
-                     }
+        System.out.println(visits.entrySet().size());
+
+        for (Map.Entry<String, UserStats> entry : visits.entrySet()) {
+            System.out.println("hello");
+            String strKey = entry.getKey();
+            if (strKey.matches("\\d*")) {
+                Long key = Long.parseLong(strKey);
+
+                Optional<Long> userStat = entry.getValue() == null ? null : entry.getValue().getVisitCount();
+                if (userStat != null && userStat.isPresent()) {
+                    if (counts.containsKey(key)) {
+                        Long addValue = counts.get(key) + userStat.get();
+                        counts.put(key, addValue);
+                    } else {
+                        counts.put(key, userStat.get());
                     }
                 }
-        );
-        return counts;
+            }
+        }
+            return counts;
     }
 }
 
