@@ -14,7 +14,7 @@ public class SelectionSort {
          */
 
         int[] list = {1,5,-2,23,-9};
-        System.out.println(Arrays.toString(selectionSort(list)));
+        System.out.println(Arrays.toString(selectionSort_differentApproach(list)));
     }
 
     public static int[] selectionSort(int[] list){
@@ -34,6 +34,29 @@ public class SelectionSort {
             }
         }
         return list;
+    }
+
+    public static int[] selectionSort_differentApproach(int[] nums){
+        // 3,2,1
+        for (int unsortedIndex = nums.length-1; unsortedIndex > 0; unsortedIndex--){
+            int largest = 0;
+            for (int i = 1; i <= unsortedIndex; i++){
+                if (nums[i] > nums[largest]){
+                    largest = i;
+                }
+            }
+            swap(nums, largest, unsortedIndex);
+        }
+        return nums;
+    }
+
+    //swapping utility
+    private static void swap(int[] array, int i, int j) {
+        if (i != j) {
+            int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
     }
 
 }
