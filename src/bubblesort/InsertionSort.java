@@ -23,31 +23,31 @@ public class InsertionSort {
     }
 
 
-    public static int[] insertionSort(int[] list){
-        for (int i = 1; i < list.length; i++){
-            int temp = list[i];
+    public static int[] insertionSort(int[] nums){
+        for (int i = 1; i < nums.length; i++){
+            int temp = nums[i];
             int j = i-1;
 
-            while (j >= 0 && list[j] > temp){
-                list[j+1] = list[j];
+            while (j >= 0 && nums[j] > temp){
+                nums[j+1] = nums[j];
                 j--;
             }
-            list[j+1] = temp;
+            nums[j+1] = temp;
         }
-        return list;
+        return nums;
     }
 
-    public static int[] insertionSort_differentApproach(int[] list){
-        for (int i = 1; i < list.length; i++){
+    public static int[] insertionSort_differentApproach(int[] nums){
+        for (int i = 1; i < nums.length; i++){
 
-            int temp = list[i];
+            int temp = nums[i];
             int j;
-            for (j = i; j > 0 && list[j-1] > temp; j--){
-                list[j] = list[j-1];
+            for (j = i; j > 0 && nums[j-1] > temp; j--){
+                nums[j] = nums[j-1];
             }
-            list[j] = temp;
+            nums[j] = temp;
         }
-        return list;
+        return nums;
     }
 
 }

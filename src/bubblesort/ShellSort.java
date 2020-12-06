@@ -24,43 +24,43 @@ public class ShellSort {
         System.out.println(Arrays.toString(shellSort_differentApproach(list)));
     }
 
-    public static int[] shellSort(int[] list){
+    public static int[] shellSort(int[] nums){
 
         //In this case we are calculating the gap by N/2
 
         //this outer is for decrementing the iteration by N/2 each time, so first 4 times, then 2, then 1, and that is it. We stop at 1
-        for(int gap = list.length/2; gap>=1; gap= gap/2){
+        for(int gap = nums.length/2; gap>=1; gap= gap/2){
             //This iteration is for moving elements by one within the distance of gap.
-            for(int i = gap; i < list.length; i++){
+            for(int i = gap; i < nums.length; i++){
                 //This iteration is for comparing elements within that gap and at a certain point doing the insertion sort when j>=0 is true
                 for (int j = i - gap; j >= 0; j = j - gap ){
-                    if (list[j+gap] > list[j]){
+                    if (nums[j+gap] > nums[j]){
                         break;
                     }else {
-                        swap(list, j + gap, j);
+                        swap(nums, j + gap, j);
                     }
                 }
             }
         }
-        return list;
+        return nums;
     }
 
-    public static int[] shellSort_differentApproach(int[] list){
+    public static int[] shellSort_differentApproach(int[] nums){
 
         // With this approach we are not swapping elements
-        for (int gap = list.length/2; gap > 0; gap /= 2 ){
-            for (int i = gap; i < list.length; i++){
+        for (int gap = nums.length/2; gap > 0; gap /= 2 ){
+            for (int i = gap; i < nums.length; i++){
                 //This part is following insertion sort
-                int temp = list[i];
+                int temp = nums[i];
                 int j = i;
-                while (j>= gap && list[j-gap] > temp){
-                    list[j] = list[j-gap];
+                while (j>= gap && nums[j-gap] > temp){
+                    nums[j] = nums[j-gap];
                     j = j - gap;
                 }
-                list[j] = temp;
+                nums[j] = temp;
             }
         }
-        return list;
+        return nums;
     }
 
     private static void swap(int[] list, int index1, int index2) {

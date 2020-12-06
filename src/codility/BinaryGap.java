@@ -15,6 +15,7 @@ public class BinaryGap {
             if (binary.charAt(i) == '0') {
                 count++;
             }
+
             if (binary.charAt(i) == '1') {
                 if (count > max) {
                     max = count;
@@ -22,6 +23,7 @@ public class BinaryGap {
                 count = 0;
             }
         }
+
         return max;
     }
 }

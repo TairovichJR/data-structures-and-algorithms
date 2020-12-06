@@ -17,28 +17,26 @@ public class SelectionSort {
         System.out.println(Arrays.toString(list));
     }
 
-    public static int[] selectionSort(int[] list){
-        // [3,1,5,2]
-        for (int i = 0; i < list.length-1; i++){
+    public static int[] selectionSort(int[] nums){
+        for (int i = 0; i < nums.length-1; i++){
             int minIndex = i; //initially assuming index of a minimum value is 0
-            for(int j = i+1; j < list.length; j++){
-                if (list[j] < list[minIndex]){
+            for(int j = i+1; j < nums.length; j++){
+                if (nums[j] < nums[minIndex]){
                     //in case a smaller value is found, setting its new index to minValue
                     minIndex = j;
                 }
             }
             //Swapping the elements
             if (minIndex != i){
-                int temp = list[minIndex];
-                list[minIndex] = list[i];
-                list[i] = temp;
+                int temp = nums[minIndex];
+                nums[minIndex] = nums[i];
+                nums[i] = temp;
             }
         }
-        return list;
+        return nums;
     }
 
     public static int[] selectionSort_differentApproach(int[] nums){
-        // 3,2,1
         for (int unsortedIndex = nums.length-1; unsortedIndex > 0; unsortedIndex--){
             int largest = 0;
             for (int i = 1; i <= unsortedIndex; i++){

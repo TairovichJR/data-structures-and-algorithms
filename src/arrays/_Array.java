@@ -22,4 +22,15 @@ public class _Array {
         System.out.println(Arrays.toString(intArray));
     }
 
+    public void selectionSort(int[] list){
+
+
+    }
+
 }
+
+
+
+
+
+
