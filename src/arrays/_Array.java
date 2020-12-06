@@ -20,6 +20,7 @@ public class _Array {
         }
 
         System.out.println(Arrays.toString(intArray));
+        System.out.println("Making changes from Github itself");
     }
 
     public void selectionSort(int[] list){
@@ -28,8 +29,6 @@ public class _Array {
     }
 
 }
-
-
 
 
 
