@@ -13,9 +13,9 @@ public class BubbleSort {
         And there is also the inner loop which will be executed n-1 times, so time complexity is (n-1)*(n-1) -> O(n^2) constants dropped
         */
 
-        int[] intArray = {20, 35, 50, 1};
-        bubbleSort_three(intArray);
-        System.out.println(Arrays.toString(intArray));
+
+      //  bubbleSort_three(intArray);
+     //   System.out.println(Arrays.toString(intArray));
 
     }
     //the basic one
@@ -70,5 +70,4 @@ public class BubbleSort {
             array[j] = temp;
         }
     }
-
 }

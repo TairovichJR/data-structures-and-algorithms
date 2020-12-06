@@ -14,10 +14,11 @@ public class SelectionSort {
          */
 
         int[] list = {1,5,-2,23,-9};
-        System.out.println(Arrays.toString(selectionSort_differentApproach(list)));
+        System.out.println(Arrays.toString(list));
     }
 
     public static int[] selectionSort(int[] list){
+        // [3,1,5,2]
         for (int i = 0; i < list.length-1; i++){
             int minIndex = i; //initially assuming index of a minimum value is 0
             for(int j = i+1; j < list.length; j++){
@@ -58,5 +59,11 @@ public class SelectionSort {
             array[j] = temp;
         }
     }
+
+
+
+
+
+
 
 }
