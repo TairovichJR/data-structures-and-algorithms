@@ -1,6 +1,4 @@
-package bubblesort;
-
-import java.util.Arrays;
+package sorting_algorithms;
 
 public class BubbleSort {
 
